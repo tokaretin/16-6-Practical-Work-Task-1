@@ -25,8 +25,10 @@ Speed: 127.8
 точностью воспользуйтесь функцией std::sprintf(speed_str, "%.1f", speed_value); где speed_str — строка, в 
 которую функция sprintf «печатает» значение скорости (speed_value) с одним знаком после десятичной точки (%.1f). */
 
+
+#define _CRT_SECURE_NO_WARNINGS // Подавление предупреждений о небезопасных функциях
 #include <iostream>
-#include <cstdio> 
+//#include <cstdio> 
 // почему-то не работает std::sprintf(speed_str, "%.1f", currentSpeed)
 // за-то работает так sprintf_s (speed_str, "%.1f", currentSpeed);  - здесь библиотеку не использую #include <cstdio> 
 
@@ -34,7 +36,7 @@ int main()
 {
     const double epsilon = 0.01; // дельта для сровнения с нулем
     double currentSpeed = 0.0; // инициализация текущей скорости авто
-    char speed_str[10]; // создаем массив для хранения офтрматированной строки скорости
+    char speed_str[8]; // создаем массив для хранения офтрматированной строки скорости
 
     do
     {
